@@ -107,7 +107,13 @@ const HomePage = () => {
         <p className="max-w-2xl mx-auto mb-8">
           Navegue pelo estudo estratégico e descubra como a Very Foods pode transformar seu negócio.
         </p>
-        <Link to="/contexto-regional" className="btn btn-primary btn-lg">Iniciar Jornada</Link>
+        <Link 
+          to="/contexto-regional" 
+          className="btn btn-primary btn-lg"
+          onClick={() => window.scrollTo(0, 0)}
+        >
+          Iniciar Jornada
+        </Link>
       </section>
     </div>
   );

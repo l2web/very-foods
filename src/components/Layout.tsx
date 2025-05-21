@@ -1,64 +1,16 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  const [menuOpen, setMenuOpen] = React.useState(false);
-  
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-  
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
   
   return (
     <div className="layout">
-      {/* Header */}
+      {/* Header - Only logo, no menu */}
       <header className="header">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="container mx-auto px-4 py-4 flex justify-center items-center">
           <Link to="/" className="header__logo">
             <img src="/logoperfil.png" alt="Very Foods Logo" className="h-10" />
           </Link>
-          
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6">
-            <Link to="/" className="nav-link">Início</Link>
-            <Link to="/contexto-regional" className="nav-link">Contexto Regional</Link>
-            <Link to="/analise-concorrentes" className="nav-link">Concorrentes</Link>
-            <Link to="/comportamento-local" className="nav-link">Comportamento Local</Link>
-            <Link to="/plano-go-to-market" className="nav-link">Go-to-Market</Link>
-            <Link to="/plano-valor" className="nav-link nav-link--cta">Plano de Valor</Link>
-          </nav>
-          
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden text-white focus:outline-none"
-            onClick={toggleMenu}
-            aria-label="Menu"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              {menuOpen ? (
-                <path d="M18 6L6 18M6 6l12 12" />
-              ) : (
-                <path d="M3 12h18M3 6h18M3 18h18" />
-              )}
-            </svg>
-          </button>
-        </div>
-        
-        {/* Mobile Navigation */}
-        <div className={`md:hidden mobile-menu ${menuOpen ? 'mobile-menu--open' : ''}`}>
-          <div className="container mx-auto px-4 py-4">
-            <nav className="flex flex-col space-y-4">
-              <Link to="/" className="nav-link" onClick={closeMenu}>Início</Link>
-              <Link to="/contexto-regional" className="nav-link" onClick={closeMenu}>Contexto Regional</Link>
-              <Link to="/analise-concorrentes" className="nav-link" onClick={closeMenu}>Concorrentes</Link>
-              <Link to="/comportamento-local" className="nav-link" onClick={closeMenu}>Comportamento Local</Link>
-              <Link to="/plano-go-to-market" className="nav-link" onClick={closeMenu}>Go-to-Market</Link>
-              <Link to="/plano-valor" className="nav-link nav-link--cta" onClick={closeMenu}>Plano de Valor</Link>
-            </nav>
-          </div>
         </div>
       </header>
       
